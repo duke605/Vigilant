@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\About.cs" />
     <Compile Include="Commands\Configure.cs" />
     <Compile Include="Commands\Exempt.cs" />
     <Compile Include="Commands\ICommand.cs" />
