@@ -1,4 +1,4 @@
-﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
 <!-- EF Runtime content -->
 <edmx:Runtime>
 <!-- SSDL content -->
@@ -7,6 +7,7 @@
   <EntityContainer Name="VigilantDbModelStoreContainer">
     <EntitySet Name="Configurations" EntityType="VigilantDbModel.Store.Configurations" store:Type="Tables" />
     <EntitySet Name="ExemptRoles" EntityType="VigilantDbModel.Store.ExemptRoles" store:Type="Tables" />
+    <EntitySet Name="Ignores" EntityType="VigilantDbModel.Store.Ignores" store:Type="Tables" />
     <EntitySet Name="Mutes" EntityType="VigilantDbModel.Store.Mutes" store:Type="Tables" />
     <EntitySet Name="Strikes" EntityType="VigilantDbModel.Store.Strikes" store:Type="Tables" />
   </EntityContainer>
@@ -32,6 +33,14 @@
     </Key>
     <Property Name="ServerId" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="Role" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Ignores">
+    <Key>
+      <PropertyRef Name="ServerId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ServerId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="20" />
   </EntityType>
   <EntityType Name="Mutes">
     <Key>
@@ -67,6 +76,7 @@
   <EntityContainer Name="VigilantDbEntities" p1:LazyLoadingEnabled="true">
     <EntitySet Name="Configurations" EntityType="VigilantDbModel.Configuration" />
     <EntitySet Name="ExemptRoles" EntityType="VigilantDbModel.ExemptRole" />
+    <EntitySet Name="Ignores" EntityType="VigilantDbModel.Ignore" />
     <EntitySet Name="Mutes" EntityType="VigilantDbModel.Mute" />
     <EntitySet Name="Strikes" EntityType="VigilantDbModel.Strike" />
   </EntityContainer>
@@ -92,6 +102,14 @@
     </Key>
     <Property Name="ServerId" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
     <Property Name="Role" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Ignore">
+    <Key>
+      <PropertyRef Name="ServerId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ServerId" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="Mute">
     <Key>
@@ -149,6 +167,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Ignores">
+      <EntityTypeMapping TypeName="VigilantDbModel.Ignore">
+        <MappingFragment StoreEntitySet="Ignores">
+          <ScalarProperty Name="ServerId" ColumnName="ServerId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Mutes">
       <EntityTypeMapping TypeName="VigilantDbModel.Mute">
         <MappingFragment StoreEntitySet="Mutes">
@@ -179,12 +205,5 @@
 <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
 <Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
 <edmx:Options><DesignerInfoPropertySet><DesignerProperty Name="ValidateOnBuild" Value="True" /><DesignerProperty Name="EnablePluralization" Value="True" /><DesignerProperty Name="IncludeForeignKeysInModel" Value="True" /><DesignerProperty Name="UseLegacyProvider" Value="False" /><DesignerProperty Name="CodeGenerationStrategy" Value="None" /></DesignerInfoPropertySet></edmx:Options>
-<edmx:Diagrams >
-      <Diagram DiagramId="5113b521ca8f4528a2363a7652748278" Name="Diagram1">
-        <EntityTypeShape EntityType="VigilantDbModel.Configuration" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.ExemptRole" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.Mute" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.Strike" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-      </Diagram>
-    </edmx:Diagrams>
+<edmx:Diagrams />
 </edmx:Designer></edmx:Edmx>

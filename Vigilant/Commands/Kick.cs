@@ -18,44 +18,11 @@ namespace Vigilant.Commands {
             try
             {
                 string userString = e.Message.RawText.Trim().Substring("!kick".Length + 1);
-                User user = e.Channel.GetUser(userString.RReplace("[<>@!]", "").ToUlong());
+                args.User = e.Channel.GetUser(userString.RReplace("[<>@!]", "").ToUlong());
 
-                // Checking if the user wasn't found
-                if (user == null)
-                {
-                    await e.Channel.SendMessage("`User could not be found.`");
+                // Making sure the user passed is valid
+                if (!await GuardHelper.GuardParsing(e, args.User))
                     return null;
-                }
-
-                // Checking if user is owner
-                if (e.Server.Owner.Id == user.Id) {
-                    await e.Channel.SendMessage("`You cannot report the server owner.`");
-                    return null;
-                }
-
-                // Checking if user is me
-                if (user.Id == Program.Client.CurrentUser.Id)
-                {
-                    await e.Channel.SendMessage("`You cannot report me!`");
-                    return null;
-                }
-
-                // Checking if user is a bot
-                if (user.IsBot)
-                {
-                    await e.Channel.SendMessage("`You cannot report a bot.`");
-                    return null;
-                }
-
-                // Checking if user is self
-                if (user.Id == e.User.Id)
-                {
-                    await e.Channel.SendMessage("`You cannot report yourself.`");
-                    return null;
-                }
-
-                // Setting the reported
-                args.User = user;
 
                 return args;
             }
@@ -70,7 +37,6 @@ namespace Vigilant.Commands {
             catch (Exception) {
                 await e.Channel.SendMessage("`An unknown error occured.`");
             }
-
 
             return null;
         }

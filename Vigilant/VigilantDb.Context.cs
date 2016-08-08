@@ -27,6 +27,7 @@ namespace Vigilant
     
         public virtual DbSet<Configuration> Configurations { get; set; }
         public virtual DbSet<ExemptRole> ExemptRoles { get; set; }
+        public virtual DbSet<Ignore> Ignores { get; set; }
         public virtual DbSet<Mute> Mutes { get; set; }
         public virtual DbSet<Strike> Strikes { get; set; }
     }

@@ -109,6 +109,9 @@
     <Compile Include="Extensions\DiscordExtensions.cs" />
     <Compile Include="Extensions\NumberExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Ignore.cs">
+      <DependentUpon>VigilantDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Jobs\IJob.cs" />
     <Compile Include="Jobs\RemoveStrikes.cs" />
     <Compile Include="Jobs\Unmute.cs" />
