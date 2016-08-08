@@ -33,8 +33,7 @@ namespace Vigilant.Commands {
             } catch (Exception) {
                 await e.Channel.SendMessage("`An unknown error occured.`");
             }
-
-
+            
             return null;
         }
 
@@ -42,17 +41,16 @@ namespace Vigilant.Commands {
         {
             Arguments a = (Arguments) args;
 
+            // Checking for server owner
+            if (e.User.Id != e.Server.Owner.Id) {
+                await e.Channel.SendMessage("`Only the server owner may use this command.`");
+                return;
+            }
+
             using (VigilantDbEntities db = new VigilantDbEntities())
             {
                 string userId = a.User.Id.ToString();
                 string serverId = e.Server.Id.ToString();
-
-                // Checking if server owner
-                if (e.User.Id != e.Server.Owner.Id)
-                {
-                    await e.Channel.SendMessage("`Only the server owner may use this command.`");
-                    return;
-                }
 
                 // Checking if person is already muted
                 if (await db.Ignores.AnyAsync(i => i.ServerId == serverId && i.UserId == userId))

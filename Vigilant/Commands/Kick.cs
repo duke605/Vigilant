@@ -61,6 +61,10 @@ namespace Vigilant.Commands {
                     await e.Channel.SendMessage("`Kick is disabled on this server.`");
                 }
 
+                // Checking if user can use command
+                if (!await GuardHelper.GuardHandle(e, db))
+                    return;
+
                 // Checking if user is exempt
                 var reportedRoles = reported.Roles.Select(r => r.Name);
                 if (await db.ExemptRoles.AnyAsync(er => reportedRoles.Contains(er.Role))) {

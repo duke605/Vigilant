@@ -55,7 +55,12 @@ namespace Vigilant.Commands {
                 // Checking if this command can be used
                 if (!db.Configurations.Find(e.Server.Id.ToString()).AllowMute) {
                     await e.Channel.SendMessage("`Mute is disabled on this server.`");
+                    return;
                 }
+
+                // Checking if user can use command
+                if (!await GuardHelper.GuardHandle(e, db))
+                    return;
                 
                 // Checking if user is exempt
                 var reportedRoles = reported.Roles.Select(r => r.Name);

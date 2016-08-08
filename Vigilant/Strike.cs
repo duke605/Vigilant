@@ -21,11 +21,4 @@ namespace Vigilant
         public byte Type { get; set; }
         public System.DateTime Time { get; set; }
     }
-
-    public enum StrikeType : byte
-    {
-        Kick = 1,
-        Mute = 2,
-        Ban = 3
-    }
 }
