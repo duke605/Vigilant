@@ -133,4 +133,12 @@ namespace Vigilant {
             });
         }
     }
+
+    // Adding this here for now because it keeps getting overwritten
+    public enum StrikeType : byte
+    {
+        Kick = 1,
+        Mute = 2,
+        Ban = 3
+    }
 }

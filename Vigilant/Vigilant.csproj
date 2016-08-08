@@ -98,6 +98,8 @@
     <Compile Include="Commands\Configure.cs" />
     <Compile Include="Commands\Exempt.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\Ignore.cs" />
+    <Compile Include="Commands\Inspect.cs" />
     <Compile Include="Commands\Kick.cs" />
     <Compile Include="Commands\Mute.cs" />
     <Compile Include="Configuration.cs">
@@ -125,6 +127,7 @@
       <DependentUpon>VigilantDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils\Error.cs" />
+    <Compile Include="Utils\GuardHelper.cs" />
     <Compile Include="Utils\HelpFormatter.cs" />
     <Compile Include="VigilantDb.Context.cs">
       <AutoGen>True</AutoGen>
