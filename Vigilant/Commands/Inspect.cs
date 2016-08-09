@@ -54,6 +54,12 @@ namespace Vigilant.Commands {
         {
             Arguments a = (Arguments) a1;
 
+            // Checking if user is server owner
+            if (e.User.Id != e.Server.Owner.Id)
+            {
+                await e.Channel.SendMessage("`Only the server owner may use this command.`");
+            }
+
             using (VigilantDbEntities db = new VigilantDbEntities())
             {
                 switch (a.TableName)
