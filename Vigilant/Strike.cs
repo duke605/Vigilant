@@ -19,6 +19,6 @@ namespace Vigilant
         public string ReportedId { get; set; }
         public string ReporterId { get; set; }
         public byte Type { get; set; }
-        public System.DateTime Time { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
     }
 }

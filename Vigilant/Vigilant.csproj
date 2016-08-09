@@ -34,6 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Devart.Data, Version=5.0.1491.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotConnect.Express.for.PostgreSQL.7.6.699\lib\Devart.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Devart.Data.PostgreSql, Version=7.6.699.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotConnect.Express.for.PostgreSQL.7.6.699\lib\Devart.Data.PostgreSql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Discord.Net, Version=0.9.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Discord.Net.0.9.4\lib\net45\Discord.Net.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +84,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
       <Private>True</Private>
@@ -108,8 +117,9 @@
     <Compile Include="ExemptRole.cs">
       <DependentUpon>VigilantDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\DiscordExtensions.cs" />
-    <Compile Include="Extensions\NumberExtensions.cs" />
+    <Compile Include="Extensions\PrimitiveExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Ignore.cs">
       <DependentUpon>VigilantDb.tt</DependentUpon>
@@ -129,6 +139,7 @@
     <Compile Include="Utils\Error.cs" />
     <Compile Include="Utils\GuardHelper.cs" />
     <Compile Include="Utils\HelpFormatter.cs" />
+    <Compile Include="Utils\TableFormatter.cs" />
     <Compile Include="VigilantDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,6 +168,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>

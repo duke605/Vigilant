@@ -17,5 +17,12 @@ namespace Vigilant.Extensions {
         /// <returns>the string with the patterns replaced</returns>
         public static string RReplace(this string source, string pattern, string replace) =>
             Regex.Replace(source, pattern, replace);
+
+        /// <summary>
+        /// Converts a string into a ulong
+        /// </summary>
+        /// <returns>the ulong represented by the string</returns>
+        public static ulong ToUlong(this string source) =>
+            ulong.Parse(source);
     }
 }

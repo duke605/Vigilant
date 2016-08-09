@@ -18,7 +18,7 @@ namespace Vigilant.Commands {
             var args = new Arguments();
 
             try {
-                string userString = e.Message.RawText.Trim().Substring("!kick".Length + 1);
+                string userString = e.Message.RawText.Trim().Substring("!ignore".Length + 1);
                 args.User = e.Channel.GetUser(userString.RReplace("[<>@!]", "").ToUlong());
 
                 // Making sure the user passed is valid

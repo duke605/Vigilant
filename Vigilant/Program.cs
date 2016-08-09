@@ -46,8 +46,6 @@ namespace Vigilant {
                 // Handling jobs
                 foreach (var job in Jobs) await job.Handle(db);
             };
-
-
         }
 
         private static void Setup()
@@ -139,6 +137,7 @@ namespace Vigilant {
     {
         Kick = 1,
         Mute = 2,
-        Ban = 3
+        Ban = 3,
+        Permanent = 4
     }
 }
