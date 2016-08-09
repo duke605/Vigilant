@@ -120,6 +120,15 @@ namespace Vigilant.Commands {
                     await e.Channel.SendMessage($"`{reported.GetAnyName()} has reached the maximum number of kick reports. Kicking user...`");
                     await reported.Kick();
 
+                    db.Strikes.Add(new Strike
+                    {
+                        ChannelId = "-1",
+                        ReportedId = reportedId,
+                        ReporterId = "-1",
+                        ServerId = serverId,
+                        Type = (byte)StrikeType.Permanent
+                    });
+
                     db.Strikes.RemoveRange(reports);
                     if (await Error.TryAsync(db.SaveChangesAsync, -1) <= 0)
                         await e.Channel.SendMessage("`There was a problem deleting the reports.`");

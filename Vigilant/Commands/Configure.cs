@@ -29,6 +29,14 @@ namespace Vigilant.Commands {
             parser.Setup<int>('m', "mute_num")
                 .Callback(n => args.MuteNum = n)
                 .WithDescription("The number of strikes need to mute a user.");
+            
+            parser.Setup<int>('f', "pban_num")
+                .Callback(b => args.PBanNum = b)
+                .WithDescription("The number of permanent strikes a user can recieve before being permanently banned.");
+
+            parser.Setup<int>('i', "block_num")
+                .Callback(b => args.BlockNum = b)
+                .WithDescription("The number of concurrent strikes a user can recieve before being ignored by the bot.");
 
             parser.Setup<int>('B', "ban_tme")
                 .Callback(n => args.BanTime = n)
@@ -49,6 +57,10 @@ namespace Vigilant.Commands {
             parser.Setup<bool>('l', "allow_kick")
                 .Callback(b => args.AllowKick = b)
                 .WithDescription("Wheather or not users can report users to kick them.");
+
+            parser.Setup<bool>('F', "allow_pban")
+                .Callback(b => args.AllowPBan = b)
+                .WithDescription("Wheather or not users can be permanently banned.");
 
             parser.SetupHelp("?", "help");
 
@@ -88,10 +100,13 @@ namespace Vigilant.Commands {
                 config.AllowKick = a.AllowKick ?? config.AllowKick;
                 config.AllowBan = a.AllowBan ?? config.AllowBan;
                 config.AllowMute = a.AllowMute ?? config.AllowMute;
+                config.AllowPBan = a.AllowPBan ?? config.AllowPBan;
 
                 config.KickNum = a.KickNum ?? config.KickNum;
                 config.BanNum = a.BanNum ?? config.BanNum;
                 config.MuteNum = a.MuteNum ?? config.MuteNum;
+                config.PBanNum = a.PBanNum ?? config.PBanNum;
+                config.BlockNum = a.BanNum ?? config.BlockNum;
 
                 config.MuteTime = a.MuteTime ?? config.MuteTime;
                 config.BanTime = a.BanTime ?? config.BanTime;
@@ -109,11 +124,14 @@ namespace Vigilant.Commands {
             public int? KickNum { get; set; }
             public int? BanNum { get; set; }
             public int? MuteNum { get; set; }
+            public int? BlockNum { get; set; }
             public int? MuteTime { get; set; }
             public int? BanTime { get; set; }
+            public int? PBanNum { get; set; }
             public bool? AllowMute { get; set; }
             public bool? AllowBan { get; set; }
             public bool? AllowKick { get; set; }
+            public bool? AllowPBan { get; set; }
         }
     }
 }

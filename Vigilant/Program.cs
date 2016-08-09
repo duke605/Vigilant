@@ -83,12 +83,15 @@ namespace Vigilant {
                         AllowMute = true,
                         AllowBan = true,
                         AllowKick = true,
+                        AllowPBan = false,
                         BanNum = 25,
+                        PBanNum = 5,
                         BanTime = 30,
                         Global = false,
                         KickNum = 15,
                         MuteNum = 10,
-                        MuteTime = 30
+                        MuteTime = 30,
+                        BlockNum = 5
                     };
 
                     db.Configurations.Add(config);

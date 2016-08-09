@@ -67,33 +67,15 @@ namespace Vigilant.Utils {
                 await e.Channel.SendMessage("`You are on the ignore list and therefore may not use commands.`");
                 return false;
             }
-
-            // Checking if player has half mute
+            
+            // Checking if player has too many strikes
             if (await db.Strikes.Where(s =>
                 s.ServerId == serverId &&
-                s.ReportedId == userId &&
-                s.Type == (byte) StrikeType.Mute)
-                .CountAsync() > Math.Floor(config.MuteNum / 2.0))
+                s.ReportedId == userId)
+                .CountAsync() > config.BlockNum)
             {
                 await e.Channel.SendMessage("`You have too many strikes to use that command.`");
-            }
-
-            // Checking if player has half ban
-            if (await db.Strikes.Where(s =>
-                s.ServerId == serverId &&
-                s.ReportedId == userId &&
-                s.Type == (byte)StrikeType.Ban)
-                .CountAsync() > Math.Floor(config.MuteNum / 2.0)) {
-                await e.Channel.SendMessage("`You have too many strikes to use that command.`");
-            }
-
-            // Checking if player has half kick
-            if (await db.Strikes.Where(s =>
-                s.ServerId == serverId &&
-                s.ReportedId == userId &&
-                s.Type == (byte)StrikeType.Kick)
-                .CountAsync() > Math.Floor(config.MuteNum / 2.0)) {
-                await e.Channel.SendMessage("`You have too many strikes to use that command.`");
+                return false;
             }
 
             return true;

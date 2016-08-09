@@ -130,6 +130,16 @@ namespace Vigilant.Commands {
                         Time = DateTime.Now.AddMinutes((await db.Configurations.FindAsync(serverId)).MuteTime)
                     });
 
+                    // Adding Permanent strike
+                    db.Strikes.Add(new Strike
+                    {
+                        ChannelId = "-1",
+                        ServerId = serverId,
+                        ReportedId = reportedId,
+                        Type = (byte) StrikeType.Permanent,
+                        ReporterId = "-1"
+                    });
+
                     // Removing all strikes
                     db.Strikes.RemoveRange(reports);
                     if (await Error.TryAsync(db.SaveChangesAsync, -1) <= 0)

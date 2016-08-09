@@ -7,16 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vigilant
-{
+namespace Vigilant {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class Mute
     {
         public string ServerId { get; set; }
         public string ChannelId { get; set; }
         public string UserId { get; set; }
-        public System.DateTime Time { get; set; }
+        public DateTime Time { get; set; }
     }
 }

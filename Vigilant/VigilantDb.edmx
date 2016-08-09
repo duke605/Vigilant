@@ -1,4 +1,4 @@
-﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
 <!-- EF Runtime content -->
 <edmx:Runtime>
 <!-- SSDL content -->
@@ -16,15 +16,18 @@
       <PropertyRef Name="ServerId" />
     </Key>
     <Property Name="ServerId" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="AllowMute" Type="bit" Nullable="false" />
     <Property Name="AllowKick" Type="bit" Nullable="false" />
+    <Property Name="AllowMute" Type="bit" Nullable="false" />
     <Property Name="AllowBan" Type="bit" Nullable="false" />
-    <Property Name="KickNum" Type="int" Nullable="false" />
-    <Property Name="MuteNum" Type="int" Nullable="false" />
+    <Property Name="AllowPBan" Type="bit" Nullable="false" />
+    <Property Name="PBanNum" Type="int" Nullable="false" />
     <Property Name="BanNum" Type="int" Nullable="false" />
-    <Property Name="Global" Type="bit" Nullable="false" />
-    <Property Name="BanTime" Type="int" Nullable="false" />
+    <Property Name="MuteNum" Type="int" Nullable="false" />
+    <Property Name="KickNum" Type="int" Nullable="false" />
     <Property Name="MuteTime" Type="int" Nullable="false" />
+    <Property Name="BanTime" Type="int" Nullable="false" />
+    <Property Name="BlockNum" Type="int" Nullable="false" />
+    <Property Name="Global" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ExemptRoles">
     <Key>
@@ -85,15 +88,18 @@
       <PropertyRef Name="ServerId" />
     </Key>
     <Property Name="ServerId" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
-    <Property Name="AllowMute" Type="Boolean" Nullable="false" />
     <Property Name="AllowKick" Type="Boolean" Nullable="false" />
+    <Property Name="AllowMute" Type="Boolean" Nullable="false" />
     <Property Name="AllowBan" Type="Boolean" Nullable="false" />
-    <Property Name="KickNum" Type="Int32" Nullable="false" />
-    <Property Name="MuteNum" Type="Int32" Nullable="false" />
+    <Property Name="AllowPBan" Type="Boolean" Nullable="false" />
+    <Property Name="PBanNum" Type="Int32" Nullable="false" />
     <Property Name="BanNum" Type="Int32" Nullable="false" />
-    <Property Name="Global" Type="Boolean" Nullable="false" />
-    <Property Name="BanTime" Type="Int32" Nullable="false" />
+    <Property Name="MuteNum" Type="Int32" Nullable="false" />
+    <Property Name="KickNum" Type="Int32" Nullable="false" />
     <Property Name="MuteTime" Type="Int32" Nullable="false" />
+    <Property Name="BanTime" Type="Int32" Nullable="false" />
+    <Property Name="BlockNum" Type="Int32" Nullable="false" />
+    <Property Name="Global" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="ExemptRole">
     <Key>
@@ -147,15 +153,18 @@
       <EntityTypeMapping TypeName="VigilantDbModel.Configuration">
         <MappingFragment StoreEntitySet="Configurations">
           <ScalarProperty Name="ServerId" ColumnName="ServerId" />
-          <ScalarProperty Name="AllowMute" ColumnName="AllowMute" />
           <ScalarProperty Name="AllowKick" ColumnName="AllowKick" />
+          <ScalarProperty Name="AllowMute" ColumnName="AllowMute" />
           <ScalarProperty Name="AllowBan" ColumnName="AllowBan" />
-          <ScalarProperty Name="KickNum" ColumnName="KickNum" />
-          <ScalarProperty Name="MuteNum" ColumnName="MuteNum" />
+          <ScalarProperty Name="AllowPBan" ColumnName="AllowPBan" />
+          <ScalarProperty Name="PBanNum" ColumnName="PBanNum" />
           <ScalarProperty Name="BanNum" ColumnName="BanNum" />
-          <ScalarProperty Name="Global" ColumnName="Global" />
-          <ScalarProperty Name="BanTime" ColumnName="BanTime" />
+          <ScalarProperty Name="MuteNum" ColumnName="MuteNum" />
+          <ScalarProperty Name="KickNum" ColumnName="KickNum" />
           <ScalarProperty Name="MuteTime" ColumnName="MuteTime" />
+          <ScalarProperty Name="BanTime" ColumnName="BanTime" />
+          <ScalarProperty Name="BlockNum" ColumnName="BlockNum" />
+          <ScalarProperty Name="Global" ColumnName="Global" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -205,13 +214,5 @@
 <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
 <Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
 <edmx:Options><DesignerInfoPropertySet><DesignerProperty Name="ValidateOnBuild" Value="True" /><DesignerProperty Name="EnablePluralization" Value="True" /><DesignerProperty Name="IncludeForeignKeysInModel" Value="True" /><DesignerProperty Name="UseLegacyProvider" Value="False" /><DesignerProperty Name="CodeGenerationStrategy" Value="None" /></DesignerInfoPropertySet></edmx:Options>
-<edmx:Diagrams >
-      <Diagram DiagramId="301a39176856485c8049206c37e811cd" Name="Diagram1">
-        <EntityTypeShape EntityType="VigilantDbModel.Configuration" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.ExemptRole" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.Ignore" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.Mute" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.Strike" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-      </Diagram>
-    </edmx:Diagrams>
+<edmx:Diagrams />
 </edmx:Designer></edmx:Edmx>
