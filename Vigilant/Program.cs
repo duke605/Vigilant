@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Timers;
 using Discord;
-using Fclp.Internals.Extensions;
 using Vigilant.Commands;
-using Vigilant.Extensions;
 using Vigilant.Jobs;
-using Vigilant.Utils;
 
 namespace Vigilant {
     class Program {
