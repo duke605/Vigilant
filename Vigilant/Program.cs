@@ -81,12 +81,9 @@ namespace Vigilant {
                     {
                         ServerId = e.Server.Id.ToString(),
                         AllowMute = true,
-                        AllowBan = true,
                         AllowKick = true,
                         AllowPBan = false,
-                        BanNum = 25,
                         PBanNum = 5,
-                        BanTime = 30,
                         Global = false,
                         KickNum = 15,
                         MuteNum = 10,
@@ -140,7 +137,6 @@ namespace Vigilant {
     {
         Kick = 1,
         Mute = 2,
-        Ban = 3,
-        Permanent = 4
+        Permanent = 3
     }
 }

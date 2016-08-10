@@ -7,24 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vigilant
-{
-    using System;
-    using System.Collections.Generic;
-    
+namespace Vigilant {
+
     public partial class Configuration
     {
         public string ServerId { get; set; }
         public bool AllowKick { get; set; }
         public bool AllowMute { get; set; }
-        public bool AllowBan { get; set; }
         public bool AllowPBan { get; set; }
         public int PBanNum { get; set; }
-        public int BanNum { get; set; }
         public int MuteNum { get; set; }
         public int KickNum { get; set; }
         public int MuteTime { get; set; }
-        public int BanTime { get; set; }
         public int BlockNum { get; set; }
         public bool Global { get; set; }
     }
