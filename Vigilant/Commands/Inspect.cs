@@ -161,17 +161,14 @@ namespace Vigilant.Commands {
             string message = $"Toggles:\r\n" +
                              $"Mute: {config.AllowMute.ToReadable("Enabled", "Disabled")}\r\n" +
                              $"Kick: {config.AllowKick.ToReadable("Enabled", "Disabled")}\r\n" +
-                             $"Ban: {config.AllowBan.ToReadable("Enabled", "Disabled")}\r\n" +
                              $"Permanent Ban: {config.AllowPBan.ToReadable("Enabled", "Disabled")}\r\n" +
                              $"\r\nNumbers:\r\n" +
                              $"Mute Number: {config.MuteNum}\r\n" +
                              $"Kick Number: {config.KickNum}\r\n" +
-                             $"Ban Number: {config.BanNum}\r\n" +
                              $"Permanent Ban Number: {config.PBanNum}\r\n" +
                              $"Block Number: {config.BlockNum}\r\n" +
                              $"\r\nTimes:\r\n" +
-                             $"Mute Time: {config.MuteTime}\r\n" +
-                             $"Ban Time: {config.BanTime}";
+                             $"Mute Time: {config.MuteTime}";
 
             await e.Channel.SendMessage($"```{message}```");
         } 

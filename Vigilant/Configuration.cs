@@ -7,8 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vigilant {
-
+namespace Vigilant
+{
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Configuration
     {
         public string ServerId { get; set; }

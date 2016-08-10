@@ -203,18 +203,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="VigilantDb.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>VigilantDb.Context.cs</LastGenOutput>
-      <DependentUpon>VigilantDb.edmx</DependentUpon>
-    </Content>
-    <Content Include="VigilantDb.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>VigilantDb.cs</LastGenOutput>
-      <DependentUpon>VigilantDb.edmx</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
@@ -228,6 +216,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="VigilantDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VigilantDb.Context.cs</LastGenOutput>
+      <DependentUpon>VigilantDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="VigilantDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VigilantDb.cs</LastGenOutput>
+      <DependentUpon>VigilantDb.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
