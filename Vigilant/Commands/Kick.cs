@@ -131,7 +131,12 @@ namespace Vigilant.Commands {
 
                     db.Strikes.RemoveRange(reports);
                     if (await Error.TryAsync(db.SaveChangesAsync, -1) <= 0)
+                    {
                         await e.Channel.SendMessage("`There was a problem deleting the reports.`");
+                        return;
+                    }
+
+                    await GuardHelper.TryPBan(db, e, reportedId, serverId);
                 }
                 else
                 {

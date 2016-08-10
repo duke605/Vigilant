@@ -98,7 +98,7 @@ namespace Vigilant {
                     await db.SaveChangesAsync();
                 }
             };
-
+            
             /*
              * Commands
              */

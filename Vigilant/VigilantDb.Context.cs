@@ -24,7 +24,7 @@ namespace Vigilant
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<Configuration> Configurations { get; set; }
         public virtual DbSet<ExemptRole> ExemptRoles { get; set; }
         public virtual DbSet<Ignore> Ignores { get; set; }

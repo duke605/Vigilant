@@ -7,9 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vigilant {
+namespace Vigilant
+{
     using System;
-
+    using System.Collections.Generic;
+    
     public partial class Mute
     {
         public string ServerId { get; set; }

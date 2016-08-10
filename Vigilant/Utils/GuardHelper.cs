@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Discord;
+using Vigilant.Extensions;
 
 namespace Vigilant.Utils {
     class GuardHelper {
@@ -76,6 +77,33 @@ namespace Vigilant.Utils {
             }
 
             return true;
+        }
+
+        public static async Task TryPBan(VigilantDbEntities db, MessageEventArgs e, string userId, string serverId)
+        {
+            Configuration config = await db.Configurations.FindAsync(serverId);
+            
+            // Checking if permanent bans are allowed
+            if (!config.AllowPBan)
+                return;
+
+            // Checking how many strikes the user has
+            int permanentCount = await db.Strikes.CountAsync(s =>
+                s.ServerId == serverId &&
+                s.ReportedId == userId &&
+                s.Type == (byte)StrikeType.Permanent);
+
+            // Checking if strikes exceed limit
+            if (permanentCount < config.PBanNum)
+                return;
+
+            await e.Channel.SendMessage($"`{userId.ToUser(e.Server).GetAnyName()} has reached the maximum amount of permanent strikes. Permanently banning user...`");
+            await e.Server.Ban(userId.ToUser(e.Server));
+        }
+
+        private struct PBanQuery
+        {
+            public int PBanNum { get; set; }
         }
     }
 }

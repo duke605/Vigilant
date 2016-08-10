@@ -143,8 +143,15 @@ namespace Vigilant.Commands {
                     // Removing all strikes
                     db.Strikes.RemoveRange(reports);
                     if (await Error.TryAsync(db.SaveChangesAsync, -1) <= 0)
+                    {
                         await e.Channel.SendMessage("`There was a problem deleting the reports.`");
-                } else {
+                        return;
+                    }
+
+                    await GuardHelper.TryPBan(db, e, reportedId, serverId);
+                } 
+                else 
+                {
                     await e.Channel.SendMessage($"`{reported.GetAnyName()} has been reported and now has {reportCount} mute report(s). {reportsNeeds} needed to mute.`");
                 }
             }
