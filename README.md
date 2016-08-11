@@ -38,6 +38,16 @@ A discord bot that allows any* user to moderate the server. Users can moderate t
 -F, --allow_pban (O) <bool> Wheather or not users can be permanently banned.
 ```
 
+```
+!weighted_role <-d remove | -r roles> <-w weight> - Adds a weight to certain roles to make their reports mean more.
+
+-r, --roles  (R) The roles to assign the given weight to.
+-w, --weight (O) The weight to assign to the given roles.
+-d, --remove (O) Wheter or not to remove the given roles.
+
+The weight OR remove switch MUST be used.
+```
+
 <sub>* Server owner only command.</sub><br />
 <sub>** Permanent strikes are added when the a user is kicked or muted when they reach max strikes for those types.</sub><br />
 <sub>† Supplied user cannot be server owner, exempt, a bot, or command caller.</sub><br />
