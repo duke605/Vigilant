@@ -95,7 +95,7 @@ namespace Vigilant.Commands {
                     ReporterId = reporterId,
                     Type = (byte)StrikeType.Mute,
                     Time = DateTime.Now.AddMinutes(30),
-                    Weight = 1
+                    Weight = await WeightedRole.GetWeight(db, e)
                 };
 
                 // Adding the strike to the DB
@@ -115,7 +115,7 @@ namespace Vigilant.Commands {
                     s.ReportedId == reportedId &&
                     s.Type == (byte)StrikeType.Mute);
 
-                int reportCount = await reports.CountAsync();
+                int reportCount = await reports.SumAsync(r => r.Weight);
 
                 // Kicking user
                 if (reportCount >= reportsNeeds) {

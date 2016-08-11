@@ -30,5 +30,6 @@ namespace Vigilant
         public virtual DbSet<Ignore> Ignores { get; set; }
         public virtual DbSet<Mute> Mutes { get; set; }
         public virtual DbSet<Strike> Strikes { get; set; }
+        public virtual DbSet<WeightedRole> WeightedRoles { get; set; }
     }
 }

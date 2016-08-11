@@ -142,6 +142,7 @@
     <Compile Include="Commands\Inspect.cs" />
     <Compile Include="Commands\Kick.cs" />
     <Compile Include="Commands\Mute.cs" />
+    <Compile Include="Commands\WeightedRole.cs" />
     <Compile Include="Configuration.cs">
       <DependentUpon>VigilantDb.tt</DependentUpon>
     </Compile>
@@ -185,6 +186,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>VigilantDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="WeightedRole.cs">
+      <DependentUpon>VigilantDb.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

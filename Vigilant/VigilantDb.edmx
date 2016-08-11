@@ -10,6 +10,7 @@
     <EntitySet Name="Ignores" EntityType="VigilantDbModel.Store.Ignores" store:Type="Tables" />
     <EntitySet Name="Mutes" EntityType="VigilantDbModel.Store.Mutes" store:Type="Tables" />
     <EntitySet Name="Strikes" EntityType="VigilantDbModel.Store.Strikes" store:Type="Tables" />
+    <EntitySet Name="WeightedRoles" EntityType="VigilantDbModel.Store.WeightedRoles" store:Type="Tables" />
   </EntityContainer>
   <EntityType Name="Configurations">
     <Key>
@@ -69,6 +70,15 @@
     <Property Name="Weight" Type="int" Nullable="false" />
     <Property Name="Time" Type="datetime" />
   </EntityType>
+  <EntityType Name="WeightedRoles">
+    <Key>
+      <PropertyRef Name="ServerId" />
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="ServerId" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Role" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Num" Type="int" Nullable="false" />
+  </EntityType>
 </Schema>
 </edmx:StorageModels>
 <!-- CSDL content -->
@@ -80,6 +90,7 @@
     <EntitySet Name="Ignores" EntityType="VigilantDbModel.Ignore" />
     <EntitySet Name="Mutes" EntityType="VigilantDbModel.Mute" />
     <EntitySet Name="Strikes" EntityType="VigilantDbModel.Strike" />
+    <EntitySet Name="WeightedRoles" EntityType="VigilantDbModel.WeightedRole" />
   </EntityContainer>
   <EntityType Name="Configuration">
     <Key>
@@ -139,6 +150,15 @@
     <Property Name="Weight" Type="Int32" Nullable="false" />
     <Property Name="Time" Type="DateTime" />
   </EntityType>
+  <EntityType Name="WeightedRole">
+    <Key>
+      <PropertyRef Name="ServerId" />
+      <PropertyRef Name="Role" />
+    </Key>
+    <Property Name="ServerId" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Num" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>
 </edmx:ConceptualModels>
 <!-- C-S mapping content -->
@@ -197,6 +217,15 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Weight" ColumnName="Weight" />
           <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeightedRoles">
+      <EntityTypeMapping TypeName="VigilantDbModel.WeightedRole">
+        <MappingFragment StoreEntitySet="WeightedRoles">
+          <ScalarProperty Name="ServerId" ColumnName="ServerId" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

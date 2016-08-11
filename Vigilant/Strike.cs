@@ -20,6 +20,6 @@ namespace Vigilant
         public string ReporterId { get; set; }
         public byte Type { get; set; }
         public int Weight { get; set; }
-        public DateTime? Time { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
     }
 }

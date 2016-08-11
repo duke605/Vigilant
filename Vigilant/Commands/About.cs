@@ -21,7 +21,7 @@ namespace Vigilant.Commands {
             await e.Channel.SendMessage(
                 $"__Author:__ Duke605\r\n" +
                 $"__Library:__ Discord.Net\r\n" +
-                $"__Version:__ 1.0.6\r\n" +
+                $"__Version:__ 1.1.0\r\n" +
                 $"__Github:__ <https://github.com/duke605/Vigilant>\r\n" +
                 $"__Report Issue:__ <https://github.com/duke605/Vigilant/issues>\r\n"
             );

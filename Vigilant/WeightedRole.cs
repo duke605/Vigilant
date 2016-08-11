@@ -12,17 +12,10 @@ namespace Vigilant
     using System;
     using System.Collections.Generic;
     
-    public partial class Configuration
+    public partial class WeightedRole
     {
         public string ServerId { get; set; }
-        public bool AllowKick { get; set; }
-        public bool AllowMute { get; set; }
-        public bool AllowPBan { get; set; }
-        public int PBanNum { get; set; }
-        public int MuteNum { get; set; }
-        public int KickNum { get; set; }
-        public int MuteTime { get; set; }
-        public int BlockNum { get; set; }
-        public bool Global { get; set; }
+        public string Role { get; set; }
+        public int Num { get; set; }
     }
 }
