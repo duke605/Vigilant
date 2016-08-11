@@ -33,6 +33,8 @@ namespace Vigilant.Commands {
                 .SetDefault(false)
                 .WithDescription("Wheter or not to remove the given roles.");
 
+            parser.SetupHelp("?", "help");
+
             var result = parser.Parse(e.Message.Text.Split(' '));
 
             // Showing help
