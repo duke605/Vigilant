@@ -216,6 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
+    <Folder Include="Events\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="VigilantDb.Context.tt">

@@ -91,7 +91,8 @@ namespace Vigilant.Commands {
                     ReportedId = reportedId,
                     ReporterId = reporterId,
                     Type = (byte) StrikeType.Kick,
-                    Time = DateTime.Now.AddMinutes(30)
+                    Time = DateTime.Now.AddMinutes(30),
+                    Weight = 1
                 };
 
                 // Adding the strike to the DB
@@ -126,7 +127,8 @@ namespace Vigilant.Commands {
                         ReportedId = reportedId,
                         ReporterId = "-1",
                         ServerId = serverId,
-                        Type = (byte)StrikeType.Permanent
+                        Type = (byte)StrikeType.Permanent,
+                        Weight = 1
                     });
 
                     db.Strikes.RemoveRange(reports);

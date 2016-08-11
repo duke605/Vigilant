@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Vigilant.Utils;
+
 namespace Vigilant
 {
     using System;
@@ -18,11 +20,42 @@ namespace Vigilant
         public bool AllowKick { get; set; }
         public bool AllowMute { get; set; }
         public bool AllowPBan { get; set; }
-        public int PBanNum { get; set; }
-        public int MuteNum { get; set; }
-        public int KickNum { get; set; }
-        public int MuteTime { get; set; }
-        public int BlockNum { get; set; }
+
+        private int _pBanNum;
+        public int PBanNum
+        {
+            get { return _pBanNum; }
+            set { _pBanNum = Math.Min(1, value); }
+        }
+
+        private int _muteNum;
+        public int MuteNum
+        {
+            get { return _muteNum; }
+            set { _muteNum = Math.Max(1, value); }
+        }
+
+        private int _kickNum;
+        public int KickNum
+        {
+            get { return _kickNum; }
+            set { _kickNum = Math.Max(1, value); }
+        }
+
+        private int _muteTime;
+        public int MuteTime
+        {
+            get { return _muteTime; }
+            set { _muteNum = Math.Max(1, value); }
+        }
+
+        private int _blockNum;
+        public int BlockNum
+        {
+            get { return _blockNum; }
+            set { _blockNum = Math.Max(1, value); }
+        }
+
         public bool Global { get; set; }
     }
 }

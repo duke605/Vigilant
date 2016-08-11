@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Discord;
@@ -101,9 +102,14 @@ namespace Vigilant.Utils {
             await e.Server.Ban(userId.ToUser(e.Server));
         }
 
-        private struct PBanQuery
+
+        public static int Clamp(int num, int min, int max)
         {
-            public int PBanNum { get; set; }
+            if (num < min)
+                return min;
+            if (num > max)
+                return max;
+            return num;
         }
     }
 }

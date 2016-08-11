@@ -1,4 +1,4 @@
-﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
 <!-- EF Runtime content -->
 <edmx:Runtime>
 <!-- SSDL content -->
@@ -66,6 +66,7 @@
     <Property Name="ReportedId" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="ReporterId" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
     <Property Name="Time" Type="datetime" />
   </EntityType>
 </Schema>
@@ -135,6 +136,7 @@
     <Property Name="ReportedId" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
     <Property Name="ReporterId" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
     <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="Weight" Type="Int32" Nullable="false" />
     <Property Name="Time" Type="DateTime" />
   </EntityType>
 </Schema>
@@ -193,6 +195,7 @@
           <ScalarProperty Name="ReportedId" ColumnName="ReportedId" />
           <ScalarProperty Name="ReporterId" ColumnName="ReporterId" />
           <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
           <ScalarProperty Name="Time" ColumnName="Time" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -205,13 +208,5 @@
 <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
 <Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
 <edmx:Options><DesignerInfoPropertySet><DesignerProperty Name="ValidateOnBuild" Value="True" /><DesignerProperty Name="EnablePluralization" Value="True" /><DesignerProperty Name="IncludeForeignKeysInModel" Value="True" /><DesignerProperty Name="UseLegacyProvider" Value="False" /><DesignerProperty Name="CodeGenerationStrategy" Value="None" /></DesignerInfoPropertySet></edmx:Options>
-<edmx:Diagrams >
-      <Diagram DiagramId="b1d71736480b4e1c84f0120f25503cae" Name="Diagram1">
-        <EntityTypeShape EntityType="VigilantDbModel.Configuration" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.ExemptRole" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.Ignore" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.Mute" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VigilantDbModel.Strike" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-      </Diagram>
-    </edmx:Diagrams>
+<edmx:Diagrams />
 </edmx:Designer></edmx:Edmx>
